@@ -4,16 +4,22 @@ import {
     View,
     Image,
     Text,
-    StyleSheet
+    StyleSheet,
+    TouchableOpacity
 } from 'react-native'
 import DataRow from './dataRow'
+import ButtonRow from './buttonRow'
 
 import iconStarship from '../../../assets/ic_starship.png'
 
 export default class StarshipDetailScreenView extends React.Component {
 
-    componentWillMount() {
-        console.log(this.props.starship)
+    _showPilots = () => {
+        console.log('Number of pilots: ' + this.props.starship.pilots.length)
+    }
+
+    _showFilms = () => {
+        console.log('Number of films: ' + this.props.starship.films.length)
     }
 
     render() {
@@ -44,6 +50,9 @@ export default class StarshipDetailScreenView extends React.Component {
                     <DataRow title = 'Passengers' data = {this.props.starship.passengers}/>
                     <DataRow title = 'Cargo Capacity' data = {this.props.starship.cargo_capacity + ' kg'}/>
                     <DataRow title = 'Consumables' data = {this.props.starship.consumables}/>
+                    <View style = {styles.separator}/>
+                    <ButtonRow title = 'Pilots' disabled = {this.props.starship.pilots.length === 0} onPress = {() => this._showPilots()}/>
+                    <ButtonRow title = 'Films' disabled = {this.props.starship.films.length === 0} onPress = {() => this._showFilms()}/>
                 </View>
             </ScrollView>
         )
