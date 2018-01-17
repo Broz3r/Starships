@@ -39,7 +39,7 @@ export default class StarshipListScreenView extends React.Component {
             console.log(item.name)
             this.props.navigator.push({
                 screen: StarshipDetailScreenView.constants.ModuleName,
-                title: item.name,
+                title: "Starship information",
                 passProps: {
                     starshipUrl: item.url
                 }
