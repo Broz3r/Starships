@@ -14,11 +14,17 @@ export const fetchingStarshipsList = () => {
     })
 }
 
-export const receiveSuccessStarshipList = (entities, starships) => {
+export const saveStarshipList = (entities, starships) => {
     return ({
-        type: ActionTypes.SUCCESS,
+        type: ActionTypes.SAVE,
         entities: entities,
         starships: starships
+    })
+}
+
+export const receiveSuccessStarshipList = () => {
+    return ({
+        type: ActionTypes.SUCCESS
     })
 }
 

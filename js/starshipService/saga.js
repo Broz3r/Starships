@@ -5,17 +5,29 @@ import * as ActionTypes from './actionTypes'
 import * as Actions from './actions'
 import * as Schema from './schema'
 
-function requestStarships() {
-    return fetch("https://swapi.co/api/starships/")
+function requestStarships(url) {
+    return fetch(url)
             .then(response => response.json())
+}
+
+function* fetchStarshipUrl(url) {
+    console.log('GET ' + url) 
+    const json = yield call(requestStarships, url)
+    const normalizedEntry = normalizeStarshipList(json.results)
+    yield put(Actions.saveStarshipList(normalizedEntry.entities, normalizedEntry.result))
+    return json.next
 }
 
 function* fetchStarshipsSaga(action) {
     yield put(Actions.fetchingStarshipsList())
     try {
-        const json = yield call(requestStarships)
-        const normalizedEntry = normalizeStarshipList(json.results)
-        yield put(Actions.receiveSuccessStarshipList(normalizedEntry.entities, normalizedEntry.result))
+        const starshipsUrl = "https://swapi.co/api/starships/"
+
+        do {
+            starshipsUrl = yield fetchStarshipUrl(starshipsUrl)
+        } while (starshipsUrl !== null)
+
+        yield put(Actions.receiveSuccessStarshipList())
     } catch (error) {
         yield put(Actions.receiveErrorStarshipList(error))
     }

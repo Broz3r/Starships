@@ -3,6 +3,7 @@ import * as Constants from './constants'
 
 const INITIAL_STATE = {
     [Constants.starshipsKey]: [],
+    [Constants.entitiesKey]: { starships: {} },
     [Constants.isLoadingKey]: false,
     [Constants.errorKey]: '',
 }
@@ -14,11 +15,14 @@ const reducer = (state = INITIAL_STATE, action) => {
                 ...state, 
                 [Constants.isLoadingKey]: true
             }
+        case ActionTypes.SAVE:
+            action.starships.forEach(function(v) { state[Constants.starshipsKey].push(v) }, this) // add action.starships to state's starships
+            state[Constants.entitiesKey].starships = {...state[Constants.entitiesKey].starships, ...action.entities.starships}
+            return state
         case ActionTypes.SUCCESS:
             return {
+                ...state,
                 [Constants.isLoadingKey]: false,
-                [Constants.starshipsKey]: action.starships,
-                [Constants.entitiesKey]: action.entities,
                 [Constants.errorKey]: ''
             }
         case ActionTypes.ERROR:
