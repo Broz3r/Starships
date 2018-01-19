@@ -7,6 +7,8 @@ import {
     StyleSheet,
     TouchableOpacity
 } from 'react-native'
+
+import StarshipPilotsScreen from '../../starshipPilotsScreen'
 import DataRow from './dataRow'
 import ButtonRow from './buttonRow'
 import Utils from '../../utils'
@@ -17,6 +19,13 @@ export default class StarshipDetailScreenView extends React.Component {
 
     _showPilots = () => {
         console.log('Number of pilots: ' + this.props.starship.pilots.length)
+        this.props.navigator.push({
+            screen: StarshipPilotsScreen.constants.ModuleName,
+            title: "Pilots",
+            passProps: {
+                pilots: this.props.starship.pilots
+            }
+        })
     }
 
     _showFilms = () => {
