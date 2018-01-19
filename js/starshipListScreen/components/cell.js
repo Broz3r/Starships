@@ -7,7 +7,13 @@ import {
     Image
 } from 'react-native'
 
+import Utils from '../../utils'
+
 import rightChevron from '../../../assets/ic_chevron_right.png'
+
+String.prototype.capitalize = function() {
+    return this.charAt(0).toUpperCase() + this.slice(1);
+}
 
 export default Cell = (props) => {
     return (
@@ -19,7 +25,7 @@ export default Cell = (props) => {
 
             <View style = {styles.content}>
                 <Text style = {styles.title} >
-                    {props.title}
+                    {Utils.StringUtils.capitalizeFirstLetter(props.title)}
                 </Text>
                 <Text style = {styles.subtitle} >
                     {props.subtitle}

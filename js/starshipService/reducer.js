@@ -16,8 +16,13 @@ const reducer = (state = INITIAL_STATE, action) => {
                 [Constants.isLoadingKey]: true
             }
         case ActionTypes.SAVE:
-            action.starships.forEach(function(v) { state[Constants.starshipsKey].push(v) }, this) // add action.starships to state's starships
+            // add action.starships to state's starships
+            action.starships.forEach(function(v) { 
+                state[Constants.starshipsKey].push(v)
+            }, this)
+
             state[Constants.entitiesKey].starships = {...state[Constants.entitiesKey].starships, ...action.entities.starships}
+
             return state
         case ActionTypes.SUCCESS:
             return {

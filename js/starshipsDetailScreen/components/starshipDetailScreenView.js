@@ -9,6 +9,7 @@ import {
 } from 'react-native'
 import DataRow from './dataRow'
 import ButtonRow from './buttonRow'
+import Utils from '../../utils'
 
 import iconStarship from '../../../assets/ic_starship.png'
 
@@ -29,7 +30,7 @@ export default class StarshipDetailScreenView extends React.Component {
                     <View style = {styles.header}>
                         <Image source = {iconStarship} style = {{margin: 12}}/>
                         <Text style = {styles.title}>
-                            {this.props.starship.name}
+                            {Utils.StringUtils.capitalizeFirstLetter(this.props.starship.name)}
                         </Text>
                         <Text >
                             {this.props.starship.model}

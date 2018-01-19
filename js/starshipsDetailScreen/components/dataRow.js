@@ -5,6 +5,8 @@ import {
     Text
 } from 'react-native'
 
+import Utils from '../../utils'
+
 export default DataRow = (props) => {
     return (
         <View style = {styles.root} >
@@ -13,7 +15,7 @@ export default DataRow = (props) => {
                     {props.title}
                 </Text>
                 <Text style = {styles.data}>
-                    {props.data}
+                    {Utils.StringUtils.capitalizeFirstLetter(props.data)}
                 </Text>
             </View>
             <View style = {styles.separator}/>
