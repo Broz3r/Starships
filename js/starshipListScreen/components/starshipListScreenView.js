@@ -7,7 +7,7 @@ import {
     ActivityIndicator,
     StyleSheet 
 } from 'react-native'
-import StarshipDetailScreenView from '../../starshipsDetailScreen'
+import StarshipDetailScreenView from '../../starshipDetailScreen'
 import Cell from './cell'
 
 const extractKey = ({url}) => url // Do not knwo how but hey, it's delete a warning !

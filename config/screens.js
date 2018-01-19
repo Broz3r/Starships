@@ -1,7 +1,7 @@
 import { Navigation } from 'react-native-navigation'
 
 import StarshipListScreen from '../js/starshipListScreen'
-import StarshipDetailScreen from '../js/starshipsDetailScreen'
+import StarshipDetailScreen from '../js/starshipDetailScreen'
 
 export default function registerScreens(store, Provider) {
     Navigation.registerComponent(
