@@ -16,8 +16,8 @@ export default class StarshipPilotsScreenView extends React.Component {
     render() {
         return (
             <ViewPager style = {{flex: 1}}>
-                {this.props.pilots.map(pilot => (
-                    <View style = {styles.container}>
+                {this.props.pilots.map((pilot, i) => (
+                    <View style = {styles.container} key = {i}>
                         <Text>
                             {pilot}
                         </Text>
