@@ -5,7 +5,8 @@ import {
     StyleSheet 
 } from 'react-native'
 
-import  {ViewPager } from 'rn-viewpager';
+import  { ViewPager } from 'rn-viewpager';
+import StarshipPilotePage from './starshipPilotPage'
 
 export default class StarshipPilotsScreenView extends React.Component {
 
@@ -16,22 +17,12 @@ export default class StarshipPilotsScreenView extends React.Component {
     render() {
         return (
             <ViewPager style = {{flex: 1}}>
-                {this.props.pilots.map((pilot, i) => (
-                    <View style = {styles.container} key = {i}>
-                        <Text>
-                            {pilot}
-                        </Text>
+                {this.props.pilots.map((pilot, index) => (
+                    <View key = {index} >
+                        <StarshipPilotePage pilot = {pilot} index = {index} key = {index}/>
                     </View>
                 ))}
             </ViewPager>
         )
     }
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'space-around',
-        alignItems: 'center'
-    }
-})

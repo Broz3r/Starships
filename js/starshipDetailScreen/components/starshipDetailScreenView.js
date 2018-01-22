@@ -9,6 +9,7 @@ import {
 } from 'react-native'
 
 import StarshipPilotsScreen from '../../starshipPilotsScreen'
+
 import DataRow from './dataRow'
 import ButtonRow from './buttonRow'
 import Utils from '../../utils'
