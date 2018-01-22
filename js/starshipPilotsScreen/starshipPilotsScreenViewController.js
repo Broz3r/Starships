@@ -5,15 +5,21 @@ import {
     StyleSheet 
 } from 'react-native'
 
+import  {ViewPager } from 'rn-viewpager';
+
 export default class StarshipPilotsScreenViewController extends React.Component {
 
     render() {
         return (
-            <View style={styles.container}>
-                <Text>
-                    {this.props.pilots}
-                </Text>
-            </View>
+            <ViewPager style = {{flex: 1}}>
+                {this.props.pilots.map(pilot => (
+                    <View style = {styles.container}>
+                        <Text>
+                            {pilot}
+                        </Text>
+                    </View>
+                ))}
+            </ViewPager>
         )
     }
 }
