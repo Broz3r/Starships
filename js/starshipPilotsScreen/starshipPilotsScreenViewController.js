@@ -1,33 +1,15 @@
-import React from 'react'
-import { 
-    View,
-    Text,
-    StyleSheet 
-} from 'react-native'
+import StarshipPilotsScreenView from './components'
+import { connect } from 'react-redux'
+import PilotService from '../pilotService'
 
-import  {ViewPager } from 'rn-viewpager';
+const mapStateToProps = (state, props) => ({
+    ...props
+})
 
-export default class StarshipPilotsScreenViewController extends React.Component {
-
-    render() {
-        return (
-            <ViewPager style = {{flex: 1}}>
-                {this.props.pilots.map(pilot => (
-                    <View style = {styles.container}>
-                        <Text>
-                            {pilot}
-                        </Text>
-                    </View>
-                ))}
-            </ViewPager>
-        )
-    }
-}
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'space-around',
-        alignItems: 'center'
+const mapDispatchToProps = (dispatch, props) => ({
+    fetchPilot: (urls) => {
+        dispatch(PilotService.Actions.fetchPilot(urls))
     }
 })
+
+export default connect(mapStateToProps, mapDispatchToProps)(StarshipPilotsScreenView)
