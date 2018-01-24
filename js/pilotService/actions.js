@@ -13,14 +13,15 @@ export const fetchingPilot = () => {
     })
 }
 
-export const savePilot = (pilot) => {
+export const savePilot = (url, pilot) => {
     return ({
         type: ActionTypes.SAVE,
+        url: url,
         pilot: pilot
     })
 }
 
-export const receiveSuccessPilot = (pilot) => {
+export const receiveSuccessPilot = () => {
     return ({
         type: ActionTypes.SUCCESS
     })

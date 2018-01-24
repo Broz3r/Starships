@@ -2,7 +2,7 @@ import * as ActionTypes from './actionTypes'
 import * as Constants from './constants'
 
 const INITAL_STATE = {
-    [Constants.pilotsKey]: [],
+    [Constants.pilotsKey]: {},
     [Constants.isLoadingKey]: false,
     [Constants.errorKey]: ''
 }
@@ -15,8 +15,13 @@ const reducer = (state = INITAL_STATE, action) => {
                 [Constants.isLoadingKey]: true
             }
         case ActionTypes.SAVE:
-            state[Constants.pilotsKey].push(action.pilot)
-            return state
+            return {
+                ...state,
+                [Constants.pilotsKey]: {
+                    ...state[Constants.pilotsKey],
+                    [action.url]: action.pilot
+                }
+            }
         case ActionTypes.SUCCESS:
             return {
                 ...state,
