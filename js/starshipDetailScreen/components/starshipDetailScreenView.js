@@ -10,8 +10,7 @@ import {
 
 import StarshipPilotsScreen from '../../starshipPilotsScreen'
 
-import DataRow from './dataRow'
-import ButtonRow from './buttonRow'
+import Components from '../../components'
 import Utils from '../../utils'
 
 import iconStarship from '../../../assets/ic_starship.png'
@@ -49,21 +48,21 @@ export default class StarshipDetailScreenView extends React.Component {
                     <Text style = {styles.sectionTitle}>
                         Model information
                     </Text>
-                    <DataRow title = 'Starship Class' data = {this.props.starship.starship_class}/>
-                    <DataRow title = 'Manufacturer' data = {this.props.starship.manufacturer}/>
-                    <DataRow title = 'Length' data = {this.props.starship.length + ' m'}/>
-                    <DataRow title = 'Cost' data = {'$' + this.props.starship.cost_in_credits}/>
+                    <Components.DataRow title = 'Starship Class' data = {this.props.starship.starship_class}/>
+                    <Components.DataRow title = 'Manufacturer' data = {this.props.starship.manufacturer}/>
+                    <Components.DataRow title = 'Length' data = {this.props.starship.length + ' m'}/>
+                    <Components.DataRow title = 'Cost' data = {'$' + this.props.starship.cost_in_credits}/>
                     <View style = {styles.separator}/>
                     <Text style = {styles.sectionTitle}>
                         Capacity
                     </Text>
-                    <DataRow title = 'Crew' data = {this.props.starship.crew}/>
-                    <DataRow title = 'Passengers' data = {this.props.starship.passengers}/>
-                    <DataRow title = 'Cargo Capacity' data = {this.props.starship.cargo_capacity + ' kg'}/>
-                    <DataRow title = 'Consumables' data = {this.props.starship.consumables}/>
+                    <Components.DataRow title = 'Crew' data = {this.props.starship.crew}/>
+                    <Components.DataRow title = 'Passengers' data = {this.props.starship.passengers}/>
+                    <Components.DataRow title = 'Cargo Capacity' data = {this.props.starship.cargo_capacity + ' kg'}/>
+                    <Components.DataRow title = 'Consumables' data = {this.props.starship.consumables}/>
                     <View style = {styles.separator}/>
-                    <ButtonRow title = 'Pilots' disabled = {this.props.starship.pilots.length === 0} onPress = {() => this._showPilots()}/>
-                    <ButtonRow title = 'Films' disabled = {this.props.starship.films.length === 0} onPress = {() => this._showFilms()}/>
+                    <Components.ButtonRow title = 'Pilots' disabled = {this.props.starship.pilots.length === 0} onPress = {() => this._showPilots()}/>
+                    <Components.ButtonRow title = 'Films' disabled = {this.props.starship.films.length === 0} onPress = {() => this._showFilms()}/>
                 </View>
             </ScrollView>
         )

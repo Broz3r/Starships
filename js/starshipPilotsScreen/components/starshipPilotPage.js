@@ -9,6 +9,7 @@ import {
     ActivityIndicator,
 } from 'react-native'
 
+import Components from '../../components'
 import iconPilot from '../../../assets/ic_pilot.png'
 
 export default StarshipPilotPage = (props) => {
@@ -40,9 +41,25 @@ export default StarshipPilotPage = (props) => {
                     <View style = {styles.header}>
                         <Image source = {iconPilot} style = {{margin: 12}}/>
                         <Text style = {styles.title}>
-                            {pilotIsDefined ? props.pilot.name : 'UNKNOWN'}
+                            {props.pilot.name}
                         </Text>
                     </View>
+                    <Text style = {styles.sectionTitle}>
+                        Civil status
+                    </Text>
+                    <Components.DataRow title = 'Birth year' data = {props.pilot.birth_year}/>
+                    <Components.DataRow title = 'Gender' data = {props.pilot.gender}/>
+                    <View style = {styles.separator}/>
+                    <Text style = {styles.sectionTitle}>
+                        Physical caracteristic
+                    </Text>
+                    <Components.DataRow title = 'Height' data = {props.pilot.height + (props.pilot.height !== "unknown" ? ' cm' : '')}/>
+                    <Components.DataRow title = 'Mass' data = {props.pilot.mass + (props.pilot.mass !== "unknown" ? ' kg' : '')}/>
+                    <Components.DataRow title = 'Skin color' data = {props.pilot.skin_color}/>
+                    <Components.DataRow title = 'Eyes color' data = {props.pilot.eye_color}/>
+                    <Components.DataRow title = 'Hairs color' data = {props.pilot.hair_color}/>
+                    <View style = {styles.separator}/>
+                    <Components.ButtonRow title = 'Home World' disabled = {props.pilot.homeworld === 'unknown'} onPress = {() => console.log('HOME WORLD ' + props.pilot.homeworld)}/>
                 </ScrollView>
             }
         </View>
@@ -75,5 +92,15 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center'
+    },
+    sectionTitle: {
+        fontWeight: 'bold',
+        marginTop: 12,
+        marginLeft: 12
+    },
+    separator: {
+        flex: 0,
+        height: 12,
+        backgroundColor: '#eee'
     }
 })

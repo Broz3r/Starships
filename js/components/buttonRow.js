@@ -1,25 +1,25 @@
 import React, { Component } from 'react'
 import {
     StyleSheet,
+    TouchableOpacity,
     View,
-    Text
+    Text,
+    Image
 } from 'react-native'
 
-import Utils from '../../utils'
+import rightChevron from '../../assets/ic_chevron_right.png'
 
-export default DataRow = (props) => {
+export default ButtonRow = (props) => {
     return (
-        <View style = {styles.root} >
+        <TouchableOpacity style = {styles.root} disabled = {props.disabled} onPress = {props.onPress} >
             <View style = {styles.rawContainer}>
-                <Text style = {styles.title}>
+                <Text style = {[styles.title, props.disabled ? styles.disabledTitle : {}]}>
                     {props.title}
                 </Text>
-                <Text style = {styles.data}>
-                    {Utils.StringUtils.capitalizeFirstLetter(props.data)}
-                </Text>
+                <Image source = {rightChevron} style = {props.disabled ? styles.disabledImage : {}}/>
             </View>
             <View style = {styles.separator}/>
-        </View>
+        </TouchableOpacity>
     )
 }
 
@@ -35,12 +35,14 @@ const styles = StyleSheet.create({
         margin: 12
     },
     title: {
-        flex: 0,
-        color: '#bbb'
-    },
-    data: {
         flex: 1,
-        textAlign: 'right'
+        fontWeight: 'bold'
+    },
+    disabledTitle: {
+        color: "#bbb"
+    },
+    disabledImage: {
+        tintColor: "#bbb"
     },
     separator: {
         flex: 0,
