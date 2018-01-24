@@ -41,7 +41,7 @@ export default class StarshipPilotsScreenView extends React.Component {
                 <ViewPager style = {{flex: 1}}>
                     {this.props.urls.map((url, index) => (
                         <View key = {index} >
-                            <StarshipPilotePage pilot = {this.props.pilots[url]} isLoading = {this.props.isLoading} index = {index} key = {index}/>
+                            <StarshipPilotePage pilot = {this.props.pilots[url]} isLoading = {this.props.isLoading} error = {this.props.error} index = {index} key = {index}/>
                         </View>
                     ))}
                 </ViewPager>
