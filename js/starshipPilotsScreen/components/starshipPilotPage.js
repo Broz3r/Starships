@@ -16,10 +16,10 @@ export default StarshipPilotPage = (props) => {
                 <View style = {styles.header}>
                     <Image source = {iconPilot} style = {{margin: 12}}/>
                     <Text style = {styles.title}>
-                        Pilot
+                        {props.pilot !== undefined ? props.pilot.name : 'UNKNOWN'}
                     </Text>
                     <Text >
-                        {props.pilot}
+                        {props.isLoading ? 'Loading' : 'END'}
                     </Text>
                 </View>
             </View>

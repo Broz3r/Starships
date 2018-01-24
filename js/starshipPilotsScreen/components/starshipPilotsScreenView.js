@@ -19,7 +19,7 @@ export default class StarshipPilotsScreenView extends React.Component {
     }
 
     componentWillMount() {
-        this.props.fetchPilot(this.props.pilots)
+        this.props.fetchPilot(this.props.urls)
     }
 
     onNavigatorEvent(event) {
@@ -39,9 +39,9 @@ export default class StarshipPilotsScreenView extends React.Component {
         if (this.state.isVisible) {
             return (
                 <ViewPager style = {{flex: 1}}>
-                    {this.props.pilots.map((pilot, index) => (
+                    {this.props.urls.map((url, index) => (
                         <View key = {index} >
-                            <StarshipPilotePage pilot = {pilot} index = {index} key = {index}/>
+                            <StarshipPilotePage pilot = {this.props.pilots[url]} isLoading = {this.props.isLoading} index = {index} key = {index}/>
                         </View>
                     ))}
                 </ViewPager>

@@ -24,7 +24,7 @@ export default class StarshipDetailScreenView extends React.Component {
             screen: StarshipPilotsScreen.constants.ModuleName,
             title: "Pilots",
             passProps: {
-                pilots: this.props.starship.pilots
+                urls: this.props.starship.pilots
             }
         })
     }
