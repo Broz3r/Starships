@@ -9,8 +9,8 @@
   "dependencies": {
     "normalizr": "^3.2.4",
     "react": "16.2.0",
-    "react-native": "0.52.0",
-    "react-native-navigation": "^1.1.348",
+    "react-native": "^0.51.0",
+    "react-native-navigation": "^1.1.352",
     "react-native-tableview-simple": "^0.17.2",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
