@@ -40,7 +40,8 @@ const styles = StyleSheet.create({
     },
     data: {
         flex: 1,
-        textAlign: 'right'
+        textAlign: 'right',
+        color: 'black'
     },
     separator: {
         flex: 0,

@@ -9,6 +9,10 @@ import  { ViewPager } from 'rn-viewpager';
 import StarshipPilotePage from './starshipPilotPage'
 
 export default class StarshipPilotsScreenView extends React.Component {
+    
+    static navigatorStyle = {
+        navBarBackgroundColor: '#FFAA00'
+    }
 
     constructor(props) {
         super(props)

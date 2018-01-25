@@ -53,11 +53,14 @@ const styles = StyleSheet.create({
         shadowOffset: {
             height: 1,
             width: 0
-        }
+        },
+        elevation: 3
     },
     leftIndicator: {
         backgroundColor: '#FFAA00', 
         width: 6,
+        borderTopLeftRadius: 5,
+        borderBottomLeftRadius: 5,
         alignSelf: 'stretch'
     },
     content: {
@@ -66,7 +69,8 @@ const styles = StyleSheet.create({
     },
     title: {
         fontWeight: 'bold',
-        marginBottom: 2
+        marginBottom: 2,
+        color: 'black'
     },
     subtitle: {
         color: 'grey'

@@ -17,6 +17,10 @@ import iconStarship from '../../../assets/ic_starship.png'
 
 export default class StarshipDetailScreenView extends React.Component {
 
+    static navigatorStyle = {
+        navBarBackgroundColor: '#FFAA00'
+    }
+
     _showPilots = () => {
         console.log('Number of pilots: ' + this.props.starship.pilots.length)
         this.props.navigator.push({
@@ -41,7 +45,7 @@ export default class StarshipDetailScreenView extends React.Component {
                         <Text style = {styles.title}>
                             {Utils.StringUtils.capitalizeFirstLetter(this.props.starship.name)}
                         </Text>
-                        <Text >
+                        <Text  style = {{ color: 'black' }}>
                             {this.props.starship.model}
                         </Text>
                     </View>
@@ -90,7 +94,8 @@ const styles = StyleSheet.create({
     sectionTitle: {
         fontWeight: 'bold',
         marginTop: 12,
-        marginLeft: 12
+        marginLeft: 12,
+        color: 'black'
     },
     separator: {
         flex: 0,

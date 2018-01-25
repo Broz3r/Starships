@@ -36,7 +36,8 @@ const styles = StyleSheet.create({
     },
     title: {
         flex: 1,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        color: 'black'
     },
     disabledTitle: {
         color: "#bbb"

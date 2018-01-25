@@ -96,7 +96,8 @@ const styles = StyleSheet.create({
     sectionTitle: {
         fontWeight: 'bold',
         marginTop: 12,
-        marginLeft: 12
+        marginLeft: 12,
+        color: 'black'
     },
     separator: {
         flex: 0,
